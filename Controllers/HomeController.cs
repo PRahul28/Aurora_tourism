@@ -2,9 +2,10 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using FormApp.Models;
 using FormApp.Data;
-
+using Microsoft.AspNetCore.Authorization;
 namespace FormApp.Controllers;
 
+[Authorize]
 public class HomeController : Controller
 {
     private readonly ApplicationDbContext _context;

@@ -10,6 +10,9 @@ namespace FormApp.Data
             : base(options)
         {
         }
+        public DbSet<Room> Rooms { get; set; }
+
+        public DbSet<Booking> Bookings { get; set; }
 
         public DbSet<Submission> Submissions { get; set; }
 

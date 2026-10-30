@@ -2,13 +2,12 @@
     ViewData["Title"] = "Hotel & Tourism";
 }
 
-<!-- NAVBAR -->
 <nav class="navbar">
     <div class="navbar-logo">AURORA</div>
 
     <div class="navbar-links">
         <a href="#about">About</a>
-        <a href="#rooms">Rooms</a>
+        <a asp-controller="Rooms" asp-action="Index">Rooms</a>
         <a href="#amenities">Amenities</a>
         <a href="#explore">Explore</a>
         <a href="#contact">Contact</a>
@@ -18,7 +17,6 @@
 </nav>
 
 
-<!-- HERO -->
 <section class="hero">
 
     <div class="hero-content">
@@ -45,7 +43,6 @@
 </section>
 
 
-<!-- ABOUT -->
 <section class="section" id="about">
 
     <div class="section-heading">
@@ -107,7 +104,6 @@
 </section>
 
 
-<!-- ROOMS -->
 <section class="section rooms-section" id="rooms">
 
     <div class="section-heading center">
@@ -151,8 +147,10 @@
                 </div>
 
                 <div class="room-bottom">
-                    <strong>₹4,999 <small>/ night</small></strong>
-                    <a href="#booking">View Room →</a>
+                    <strong>₹4,500 <small>/ night</small></strong>
+                    <a asp-controller="Bookings"
+                    asp-action="Create"
+                    asp-route-roomId="1">View Room →</a>
                 </div>
 
             </div>
@@ -182,8 +180,10 @@
                 </div>
 
                 <div class="room-bottom">
-                    <strong>₹7,999 <small>/ night</small></strong>
-                    <a href="#booking">View Room →</a>
+                    <strong>₹8,500 <small>/ night</small></strong>
+                    <a asp-controller="Bookings"
+                    asp-action="Create"
+                    asp-route-roomId="2">View Room →</a>
                 </div>
 
             </div>
@@ -213,8 +213,10 @@
                 </div>
 
                 <div class="room-bottom">
-                    <strong>₹10,999 <small>/ night</small></strong>
-                    <a href="#booking">View Room →</a>
+                    <strong>₹6,500 <small>/ night</small></strong>
+                    <a asp-controller="Bookings"
+                    asp-action="Create"
+                    asp-route-roomId="3">View Room →</a>
                 </div>
 
             </div>
@@ -226,7 +228,6 @@
 </section>
 
 
-<!-- AMENITIES -->
 <section class="section amenities-section" id="amenities">
 
     <div class="section-heading">
@@ -284,7 +285,6 @@
 </section>
 
 
-<!-- EXPLORE -->
 <section class="section explore-section" id="explore">
 
     <div class="section-heading center">
@@ -335,7 +335,6 @@
 </section>
 
 
-<!-- WHY US -->
 <section class="section why-section">
 
     <div class="why-content">
@@ -370,7 +369,6 @@
 </section>
 
 
-<!-- BOOKING / EXISTING FORM -->
 <section class="booking-section" id="booking">
 
     <div class="booking-container">
@@ -456,7 +454,6 @@
 </section>
 
 
-<!-- CONTACT -->
 <section class="contact-section" id="contact">
 
     <div class="contact-container">

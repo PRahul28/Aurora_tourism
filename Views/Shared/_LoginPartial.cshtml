@@ -1,0 +1,27 @@
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <div class="text-end p-2">
+        <span>
+            Signed in as @User.Identity.Name
+        </span>
+
+        <form asp-controller="Account"
+              asp-action="Logout"
+              method="post"
+              class="d-inline">
+            <button type="submit" class="btn btn-outline-light btn-sm">
+                Sign out
+            </button>
+        </form>
+    </div>
+}
+else
+{
+    <div class="text-end p-2">
+        <a asp-controller="Account"
+           asp-action="Login"
+           class="btn btn-light btn-sm">
+            Sign in with Google
+        </a>
+    </div>
+}

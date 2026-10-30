@@ -1,0 +1,57 @@
+
+@model FormApp.Models.Booking
+
+@{
+    ViewData["Title"] = "Booking Confirmed";
+}
+
+<section class="container py-5">
+    <div class="card bg-dark text-white border-secondary mx-auto"
+         style="max-width: 650px;">
+        <div class="card-body p-4 text-center">
+            <h1 class="text-success">Booking Confirmed!</h1>
+            <p>Your booking has been saved successfully.</p>
+
+            <hr />
+
+            <h2 class="h4">@Model.Room?.Name</h2>
+
+            <p>
+                <strong>Booking ID:</strong> @Model.BookingId
+            </p>
+
+            <p>
+                <strong>Check-in:</strong>
+                @Model.CheckInDate.ToString("dd MMM yyyy")
+            </p>
+
+            <p>
+                <strong>Check-out:</strong>
+                @Model.CheckOutDate.ToString("dd MMM yyyy")
+            </p>
+
+            <p><strong>Guests:</strong> @Model.Guests</p>
+
+            <p>
+                <strong>Price per night:</strong>
+                ₹@Model.PricePerNight.ToString("N0")
+            </p>
+
+            <p class="fs-4">
+                <strong>Total:</strong>
+                ₹@Model.TotalPrice.ToString("N0")
+            </p>
+
+            <a asp-controller="Rooms"
+               asp-action="Index"
+               class="btn btn-light mt-3">
+                Back to Rooms
+            </a>
+            <a asp-controller="Home"
+            asp-action="Index"
+            class="btn btn-outline-light mt-3">
+                Back to Home
+            </a>
+        </div>
+    </div>
+</section>

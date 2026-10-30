@@ -1,0 +1,64 @@
+
+@model IEnumerable<FormApp.Models.Booking>
+
+@{
+    ViewData["Title"] = "My Bookings";
+}
+
+<section class="container py-5">
+    <h1 class="mb-4">My Bookings</h1>
+
+    @if (!Model.Any())
+    {
+        <p>You haven't made any bookings yet.</p>
+
+        <a asp-controller="Rooms"
+           asp-action="Index"
+           class="btn btn-light">
+            Explore Rooms
+        </a>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-dark table-bordered align-middle">
+                <thead>
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>Room</th>
+                        <th>Check-in</th>
+                        <th>Check-out</th>
+                        <th>Guests</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var booking in Model)
+                    {
+                        <tr>
+                            <td>@booking.BookingId</td>
+                            <td>@booking.Room?.Name</td>
+                            <td>@booking.CheckInDate.ToString("dd MMM yyyy")</td>
+                            <td>@booking.CheckOutDate.ToString("dd MMM yyyy")</td>
+                            <td>@booking.Guests</td>
+                            <td>₹@booking.TotalPrice.ToString("N0")</td>
+                            <td>@booking.BookingStatus</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+    <a asp-controller="Rooms"
+       asp-action="Index"
+       class="btn btn-outline-light mt-3">
+        Back to Rooms
+    </a>
+    <a asp-controller="Home"
+    asp-action="Index"
+    class="btn btn-outline-light w-100 mt-2">
+        Back to Home
+    </a>
+</section>

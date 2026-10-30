@@ -1,0 +1,50 @@
+
+@model IEnumerable<FormApp.Models.Room>
+
+@{
+    ViewData["Title"] = "Our Rooms";
+}
+
+<section class="container py-5">
+    <div class="text-center mb-5">
+        <p class="text-uppercase">Discover Aurora</p>
+        <h1>Our Rooms & Suites</h1>
+        <p>Choose a room for your next stay.</p>
+    </div>
+
+    <div class="row g-4">
+        @foreach (var room in Model)
+        {
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 bg-dark text-white border-secondary">
+                    @if (!string.IsNullOrWhiteSpace(room.ImageUrl))
+                    {
+                        <img src="@room.ImageUrl"
+                             class="card-img-top"
+                             alt="@room.Name"
+                             style="height:220px; object-fit:cover;" />
+                    }
+
+                    <div class="card-body d-flex flex-column">
+                        <h2 class="h4">@room.Name</h2>
+                        <p>@room.Description</p>
+
+                        <p>
+                            <strong>₹@room.PricePerNight.ToString("N0")</strong>
+                            / night
+                        </p>
+
+                        <p>Maximum guests: @room.Capacity</p>
+
+                        <a asp-controller="Bookings"
+                        asp-action="Create"
+                        asp-route-roomId="@room.Id"
+                        class="btn btn-light mt-auto">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>

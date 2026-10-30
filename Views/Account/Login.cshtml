@@ -1,0 +1,19 @@
+
+@{
+    ViewData["Title"] = "Login - Aurora";
+    var returnUrl = ViewData["ReturnUrl"] as string ?? "/Rooms";
+}
+
+<div class="form-page">
+    <div class="form-card">
+        <h1>Welcome to Aurora</h1>
+        <p>Sign in with Google to explore our rooms and make a booking.</p>
+
+        <a class="btn btn-light w-100"
+           asp-controller="Account"
+           asp-action="GoogleLogin"
+           asp-route-returnUrl="@returnUrl">
+            Continue with Google
+        </a>
+    </div>
+</div>
